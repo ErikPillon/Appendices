@@ -1,0 +1,104 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\section{Variable coefficients second order linear ODE}
+\begin{flushright}
+	\emph{"Je n'avais pas besoin de cette hypothèse-là."}\\ 
+	
+	Pierre-Simon, marquis de Laplace.
+\end{flushright}
+\label{sec:ODE_2nd}
+Given functions $ p(x), q(x), f(x)\colon \R\to \R $, the differential equation in the unknown function $ y(x)\colon \R\to \R $ given by
+\begin{equation}
+y''(x)+p(x)y'(x)+q(x)y(x)=f(x)
+\label{eq:diff_eq_2nd}
+\end{equation}
+is called a second order linear differential equation with variable coefficients. The equation in \eqref{eq:diff_eq_2nd} is called homogeneous iff for all $ x\in \R $ holds
+\[f(x)=0. \]
+The equation in \eqref{eq:diff_eq_2nd} is called of constant coefficients iff $ p(x), q(x), f(x) $ are constants.
+\begin{thm}[Superposition property]
+	If the functions $ y_1(x) $ and $ y_2(x) $ are solutions to the homogeneous linear equation
+	\begin{equation}
+	y''(x)+p(x)y'(x)+q(x)y(x)=0,
+	\end{equation}
+	then the linear combination $ c_1y_1(x)+c_2y_2(x) $ is also a solution for any constants $ c_1,c_2\in \R $.
+\end{thm}
+\begin{proof}
+	Trivial.
+\end{proof}
+\subsubsection{Existence and uniqueness of solutions.}
+\bigskip
+\begin{thm}[Variable coefficients]
+	If the functions $ p(x),q(x)\colon\left(x_1,x_2\right)\to \R $ are continuous, the constants $ x_0\in \left(x_1,x_2 \right)\to \R $ to the initial value problem
+	\begin{equation}
+	\begin{cases}
+	y''(x)+p(x)y'(x)+q(x)y(x)=f(x),\\
+	y(x_0)=y_0,\\
+	y'(x_0)=y_1.
+	\end{cases}
+	\end{equation}
+\end{thm}
+\begin{rmk}
+	Unlike the first order linear ODE where we have an explicit expression for the solution, there is no explicit expression for the solution of second order linear ODE.
+\end{rmk}
+\begin{rmk}
+	Two integrations must be done to find solutions to second order linear. Therefore, initial value problems with two initial conditions can have a unique solution.
+\end{rmk}
+\begin{rec}
+	Every solution of the first order linear equation
+	\[y'(x)+p(x)y(x)=0 \]
+	is given by $ y(x)=c e^{-A(x)}, $ with $ A(x)=\int_{0}^{x} p(\xi)\diff\xi. $
+\end{rec}
+\begin{rmk}
+	The above statement is not true for solutions of second order, linear, homogeneous equations, $ y''(x)+p(x)y'(x)+q(x)y(x)=0. $
+\end{rmk}
+\subsubsection{The Wronskian}
+\medskip
+\begin{rmk}
+	The Wronskian is a function that determines whether two functions are linear dependent or linearly independent.
+\end{rmk}
+\begin{mydef}
+	The wronskian of functions $ y_1(x), y_2(x)\colon\left(x_1,x_2\right)\to \R $ is the function
+	\[W_{y_1,y_2}(x)=y_1(x)y_2'(x)-y_1'(x)y_2(x). \]
+\end{mydef}
+Notice that if we denote by \[w(x)=\begin{bmatrix}
+y_1(x) & y_2(x)\\
+y_1'(x) & y_2'(x)
+\end{bmatrix} \]
+then we have that $ W_{y_1,y_2}(x)=\det(w(x)) $. 
+
+If the functions $ y_i(x) $ are linearly dependent, then so are the columns of the Wronskian as differentiation is a linear operation, so the Wronskian vanishes. Thus, the Wronskian can be used to show that a set of differentiable functions is linearly independent on an interval by showing that it does not vanish identically. It may, however, vanish at isolated points. 
+The following Theorem figure out what we've just said.
+\begin{thm}[Wronskian]
+	The continuously differentiable functions $ y_1,y_2\colon (x_1,x_2)\to \R $ are linearly dependent iff $ W_{y_1,y_2}(x)=0 $ for all $ x\in (x_1,x_2). $
+\end{thm}
+\subsection{General and fundamental solutions}
+\begin{thm}
+	If $ p(x), q(x)\colon (x_1,x_2)\to \R $ are continuous, then the functions $ y_1(x),y_2(x)\colon (x_1,x_2)\to\R $ solutions of the initial value problems 
+	\begin{align*}
+		y_1''(x)+p(x)y_1'(x)+q(x)y_1(x)=0, & y_1(0)=1, \qquad y_1'(0)=0,\\
+		y_2''(x)+p(x)y_2'(x)+q(x)y_2(x)=0, & y_2(0)=0, \qquad y_2'(0)=1, 
+	\end{align*}
+	are linearly independent.
+\end{thm}
+\begin{rmk}
+	Every linear combination $ y(x)=c_1y_1(x)+c_2y_2(x), $ is also a solution of the differential equation
+	\begin{equation}
+	\label{eq:def_homo}
+	y''(x)+p(x)y'(x)+q(x)y(x)=0.
+	\end{equation}
+	Conversely, every solution $ y(x) $ of the equation above can be written as linear combination of the solutions $ y_1,y_2. $
+\end{rmk}
+The results above justify the following 
+\begin{mydef}[Fundamental solution]
+	Two solutions $ y_1,y_2 $ of the homogeneous equation are called fundamental solutions iff the functions $ y_1,y_2 $ are linearly independent, that is, iff $ W_{y_1,y_2}\neq 0. $
+\end{mydef}
+\begin{mydef}
+	Given any two fundamental solutions $ y_1,y_2, $ and arbitrary constants $ c_1,c_2 $ the function
+	\[y(x)=c_1y_1(x)+c_2y_2(x) \]
+	is called the general solution of Eq.~\eqref{eq:def_homo}. 
+\end{mydef}
+
+\centering
+{\Huge MISSING ABEL THEOREM}
+% main reference:
+% http://users.math.msu.edu/users/gnagy/teaching/13-spring/mth235/L07-235.pdf

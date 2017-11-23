@@ -1,0 +1,63 @@
+\documentclass{book}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+%% THEOREM STYLE
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
+\newtheorem*{rec}{Recall}
+\newtheorem{note}{Note}
+
+%% AMBIENTI MATEMATICI
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rn}{\mathbb{R^n}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\tu}{\tilde{U}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\phi}{\varphi}
+\newcommand{\diff}{\mathop{}\!d}
+\newcommand{\norm}[1]{\left\lvert #1\right\rvert}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pds}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+\usepackage{geometry}
+\geometry{a4paper,top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,	
+	heightrounded,bindingoffset=5mm}
+
+% --------- OTHER BEAUTIFUL FONTS --------------------------
+% \usepackage{palatino}
+% \usepackage{fontawesome}
+% \usepackage{fourier}
+% ----------------------------------------------------------
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\usepackage{hyperref}
+\frenchspacing 
+
+
+\begin{document}
+
+\input{lap_transform}
+
+\input{ODE_2nd}
+
+\end{document}

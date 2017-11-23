@@ -1,0 +1,65 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\section{Laplace transform}
+\begin{flushright}
+	\emph{" Je n'avais pas besoin de cette hypothèse-là."}\\ 
+	
+	Pierre-Simon, marquis de Laplace.
+\end{flushright}
+\label{sec:Laplace_transform}
+The Laplace transform  $ \mathcal{L} $  is defined by
+\[\mathcal{L}[f(t)](s)=\int_0^{\infty} f(t)e^{-st}\diff t\]
+where $ f(t) $ is defined for $ t\geq0 $. 
+
+The Laplace transform existence theorem states that, if $ f(t) $ is piecewise continuous on every finite interval in $ [0,\infty) $ satisfying $ \norm{f(t)}\leq Me^{at}$	  
+for all $ t\in [0,\infty) $, then $ \mathcal{L}[f(t)](s) $ exists for all $ s>a $. 
+
+The Laplace transform is also unique, in the sense that, given two functions $ F_1(t) $ and $ F_2(t) $ with the same transform so that
+\[\mathcal{L}[F_1(t)](s)=\mathcal{L}[F_2(t)](s)=f(s),\] 	
+
+then Lerch's theorem guarantees that the integral
+$ \int_0^a N(t)\diff t=0 $ 	
+vanishes for all $ a>0 $ for a null function defined by
+$ N(t)=F_1(t)-F_2(t) $. 
+
+The Laplace transform is linear since
+\begin{align*}
+	\mathcal{L}[af(t)+bg(t)]&=\int_0^{\infty}[af(t)+bg(t)]e^{-st}\diff t\\
+	&=a\int_0^{\infty}fe^{-st}\diff t+b\int_0^{\infty}ge^{-st}\diff t\\		
+	& =	a\mathcal{L}[f(t)]+b\mathcal{L}[g(t)].	
+\end{align*}
+The Laplace transform of a convolution is given by
+\begin{align*}
+	\mathcal{L}[f(t)*g(t)]=\mathcal{L}[f(t)]\mathcal{L}[g(t)]\\ \mathcal{L}^{-1}[FG]=\mathcal{L}^{-1}[F]*\mathcal{L}^{-1}[G].
+\end{align*}
+Now consider differentiation. Let $ f(t) $ be continuously differentiable $ n-1 $ times in $ [0,\infty) $. If $ \norm{f(t)}\leq Me^{at} $, then
+\[
+\mathcal{L}[f^{n}(t)](s)=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-s^{n-2}f'(0)-\ldots-f^{n-1}(0).\]
+This can be proved by integration by parts,
+\begin{align*}
+	\mathcal{L}[f'(t)](s)&=\lim_{a\to\infty}\int_0^a e^{-st}f'(t)\diff t\\	
+	&=\lim_{a\to \infty}\{\left[e^{-st}f(t)\right]_0^a +s\int_0^a e^{-st}f(t)\diff t\}	\\
+	&=\lim_{a\to\infty}\left[e^{-sa}f(a)-f(0)+s\int_0^a e^{-st}f(t)\diff t\right]\\	
+	&=\mathcal{L}[f(t)]-f(0).
+\end{align*}
+Continuing for higher-order derivatives then gives
+\[\mathcal{L}[f''(t)](s)=s^2\mathcal{L}[f(t)](s)-sf(0)-f'(0). 	
+\]
+This property can be used to transform differential equations into algebraic equations, a procedure known as the \emph{Heaviside calculus}, which can then be inverse transformed to obtain the solution. For example, applying the Laplace transform to the equation
+\[f''(t)+a_1f(t)+a_0f(t)=0\] 	
+gives
+\begin{align*}
+	s^2\mathcal{L}[f(t)](s)-sf(0)-f'(0)+a_1\{s\mathcal{L}[f(t)](s)-f(0)\} +a_0\mathcal{L}[f(t)](s)=0\\
+	\mathcal{L}[f(t)](s)(s^2+a_1s+a_0)-sf(0)-f'(0)-a_1f(0)=0, 	
+\end{align*}
+which can be rearranged to
+\[\mathcal{L}[f(t)](s)=\frac{sf(0)+f'(0)+a_1f(0)}{s^2+a_1s+a_0}. 	\]
+If this equation can be inverse Laplace transformed, then the original differential equation is solved.
+
+The Laplace transform satisfies a number of useful properties. Consider exponentiation. If $ \mathcal{L}[f(t)](s)=F(s) $ for $ s>\alpha $ (i.e., $ F(s) $ is the Laplace transform of $ f $), then $ \mathcal{L}[e^{at}f](s)=F(s-a) $ for $ s>a+\alpha $. This follows from
+\begin{align}
+	F(s-a)\int_0^{\infty}fe^{-(s-a)t}\diff t=\int_0^{\infty}[f(t)e^{at}]e^{-st}\diff t	
+	&=\mathcal{L}[e^{at}f(t)](s).
+\end{align}		
+The Laplace transform also has nice properties when applied to integrals of functions. If $ f(t) $ is piecewise continuous and $ \norm{f(t)}\leq Me^{at} $, then
+\[\mathcal{L}\left[\int_0^tf(t')\diff t'\right]=\frac{1}{s}\mathcal{L}[f(t)](s).\] 	 
